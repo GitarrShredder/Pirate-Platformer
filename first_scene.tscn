@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b43hgoemp7d35"]
+[gd_scene load_steps=5 format=3 uid="uid://b43hgoemp7d35"]
 
 [ext_resource type="Texture2D" uid="uid://c75hw3mvfhbbo" path="res://icon.svg" id="1_7ogue"]
-[ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Roger/roger.tscn" id="2_4qfbx"]
+[ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="2_4qfbx"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_852un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhw01"]
 size = Vector2(125, 124)
@@ -26,3 +27,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dhw01")
 
 [node name="Roger" parent="." instance=ExtResource("2_4qfbx")]
+position = Vector2(396, 481)
+
+[node name="Player" type="Node" parent="Roger"]
+script = ExtResource("3_852un")
