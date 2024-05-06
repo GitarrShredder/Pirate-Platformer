@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs4el81vlraut"]
+
+[ext_resource type="Texture2D" uid="uid://dchhvovty5qdj" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_uadut"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otuk8"]
+radius = 7.0
+height = 28.0
+
+[node name="Roger" type="CharacterBody2D"]
+position = Vector2(0, -12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uadut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_otuk8")
