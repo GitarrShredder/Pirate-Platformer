@@ -26,70 +26,6 @@
 radius = 7.0
 height = 28.0
 
-[sub_resource type="Animation" id="Animation_301bh"]
-resource_name = "idle"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_uadut"), ExtResource("3_q1i5m"), ExtResource("4_ra7nc"), ExtResource("5_ihc1q"), ExtResource("6_3hlo7")]
-}
-
-[sub_resource type="Animation" id="Animation_5y3bk"]
-resource_name = "run"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_lrrmm"), ExtResource("8_mqfpr"), ExtResource("9_ptsbm"), ExtResource("10_o5jyu"), ExtResource("11_pb8ky"), ExtResource("12_vj40x")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [ExtResource("14_r2je8")],
-"method": &"_spawn_dust"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_hafm1"]
-resource_name = "jump"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("13_jfof2"), ExtResource("14_gfi08"), ExtResource("15_1hfq2")]
-}
-
 [sub_resource type="Animation" id="Animation_ib1ix"]
 resource_name = "fall"
 length = 0.3
@@ -132,6 +68,70 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [ExtResource("19_bu8bg")],
+"method": &"_spawn_dust"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_301bh"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_uadut"), ExtResource("3_q1i5m"), ExtResource("4_ra7nc"), ExtResource("5_ihc1q"), ExtResource("6_3hlo7")]
+}
+
+[sub_resource type="Animation" id="Animation_hafm1"]
+resource_name = "jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_jfof2"), ExtResource("14_gfi08"), ExtResource("15_1hfq2")]
+}
+
+[sub_resource type="Animation" id="Animation_5y3bk"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_lrrmm"), ExtResource("8_mqfpr"), ExtResource("9_ptsbm"), ExtResource("10_o5jyu"), ExtResource("11_pb8ky"), ExtResource("12_vj40x")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("14_r2je8")],
 "method": &"_spawn_dust"
 }]
 }
@@ -240,7 +240,7 @@ script = ExtResource("1_04wi7")
 _jump_dust = ExtResource("2_3foa8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lrrmm")
+texture = ExtResource("16_6qkw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -253,9 +253,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_2l85a")
-}
 tree_root = SubResource("AnimationNodeStateMachine_7r1th")
 advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("..")

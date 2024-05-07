@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b43hgoemp7d35"]
+[gd_scene load_steps=7 format=3 uid="uid://b43hgoemp7d35"]
 
 [ext_resource type="Texture2D" uid="uid://c75hw3mvfhbbo" path="res://icon.svg" id="1_7ogue"]
 [ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="2_4qfbx"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_852un"]
+[ext_resource type="PackedScene" uid="uid://crajuftg2cmyb" path="res://Scenes/Characters/Crabby/crabby.tscn" id="4_gfsxq"]
+[ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="5_oqpa5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhw01"]
 size = Vector2(125, 124)
@@ -36,3 +38,9 @@ script = ExtResource("3_852un")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(589, 445)
 zoom = Vector2(2, 2)
+
+[node name="Crabby" parent="." instance=ExtResource("4_gfsxq")]
+position = Vector2(688, 536)
+
+[node name="Fierce Tooth" parent="." instance=ExtResource("5_oqpa5")]
+position = Vector2(828, 528)
