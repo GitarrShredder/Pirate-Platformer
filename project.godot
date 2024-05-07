@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Pirate Platformer"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png"
 
 [autoload]
 

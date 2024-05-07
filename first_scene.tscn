@@ -28,6 +28,11 @@ shape = SubResource("RectangleShape2D_dhw01")
 
 [node name="Roger" parent="." instance=ExtResource("2_4qfbx")]
 position = Vector2(396, 481)
+_jump_height = 2.0
 
 [node name="Player" type="Node" parent="Roger"]
 script = ExtResource("3_852un")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(589, 445)
+zoom = Vector2(2, 2)
