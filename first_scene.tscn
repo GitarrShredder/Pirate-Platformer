@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b43hgoemp7d35"]
+[gd_scene load_steps=8 format=3 uid="uid://b43hgoemp7d35"]
 
 [ext_resource type="Texture2D" uid="uid://c75hw3mvfhbbo" path="res://icon.svg" id="1_7ogue"]
 [ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="2_4qfbx"]
 [ext_resource type="Script" uid="uid://ceafa1wgtmex8" path="res://Scripts/player.gd" id="3_852un"]
 [ext_resource type="PackedScene" uid="uid://crajuftg2cmyb" path="res://Scenes/Characters/Crabby/crabby.tscn" id="4_gfsxq"]
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="5_oqpa5"]
+[ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="6_slp24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhw01"]
 size = Vector2(125, 124)
@@ -29,7 +30,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dhw01")
 
 [node name="Roger" parent="." instance=ExtResource("2_4qfbx")]
-position = Vector2(396, 481)
+position = Vector2(516, 523)
 _jump_height = 2.0
 
 [node name="Player" type="Node" parent="Roger"]
@@ -40,7 +41,10 @@ position = Vector2(589, 445)
 zoom = Vector2(2, 2)
 
 [node name="Crabby" parent="." instance=ExtResource("4_gfsxq")]
-position = Vector2(688, 536)
+position = Vector2(617, 535)
 
 [node name="Fierce Tooth" parent="." instance=ExtResource("5_oqpa5")]
-position = Vector2(828, 528)
+position = Vector2(679, 536)
+
+[node name="Pink Star" parent="." instance=ExtResource("6_slp24")]
+position = Vector2(567, 524)

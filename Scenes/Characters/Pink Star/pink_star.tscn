@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dx4g1s1o43tem"]
+[gd_scene load_steps=71 format=3 uid="uid://dx4g1s1o43tem"]
 
 [ext_resource type="Texture2D" uid="uid://pt1dw2xdrxy7" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 01.png" id="1_0iw06"]
 [ext_resource type="Texture2D" uid="uid://c5kbmfwbc4mva" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="1_jipmt"]
@@ -222,12 +222,88 @@ _data = {
 &"run": SubResource("Animation_gt7kn")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_syflr"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qptb3"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ra2wx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o2kb2"]
+advance_mode = 2
+advance_expression = "velocity.x !=0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mpf5"]
+advance_mode = 2
+advance_expression = "velocity.x ==0"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6otgg"]
+states/idle/node = SubResource("AnimationNodeAnimation_syflr")
+states/idle/position = Vector2(305, 100)
+states/run/node = SubResource("AnimationNodeAnimation_qptb3")
+states/run/position = Vector2(395, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ra2wx"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_o2kb2"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_3mpf5")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0wjlj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_syflr"]
+states/Locomotion/node = SubResource("AnimationNodeStateMachine_6otgg")
+states/Locomotion/position = Vector2(344, 91)
+states/Start/position = Vector2(181, 91)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_0wjlj")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rx0uc"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pno3e"]
+animation = &"ground"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7x0y"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qptb3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vrv56"]
+advance_mode = 2
+advance_expression = "velocity.y < 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n46c8"]
+advance_mode = 2
+advance_expression = "velocity.y >=0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n5ev4"]
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y8uah"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o1mnh"]
+advance_mode = 2
+advance_expression = "not is_on_floor()"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1qgbk"]
+states/Movement/node = SubResource("AnimationNodeStateMachine_syflr")
+states/Movement/position = Vector2(345, 125)
+states/Start/position = Vector2(173, 120)
+states/fall/node = SubResource("AnimationNodeAnimation_rx0uc")
+states/fall/position = Vector2(465, 41)
+states/ground/node = SubResource("AnimationNodeAnimation_pno3e")
+states/ground/position = Vector2(560, 100)
+states/jump/node = SubResource("AnimationNodeAnimation_y7x0y")
+states/jump/position = Vector2(345, 41)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_qptb3"), "Movement", "jump", SubResource("AnimationNodeStateMachineTransition_vrv56"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_n46c8"), "fall", "ground", SubResource("AnimationNodeStateMachineTransition_n5ev4"), "ground", "Movement", SubResource("AnimationNodeStateMachineTransition_y8uah"), "Movement", "fall", SubResource("AnimationNodeStateMachineTransition_o1mnh")]
 
 [node name="Pink Star" type="CharacterBody2D"]
 script = ExtResource("1_lk3l6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kohyi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
