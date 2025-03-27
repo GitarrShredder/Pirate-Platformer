@@ -1,7 +1,7 @@
 [gd_scene load_steps=72 format=3 uid="uid://crajuftg2cmyb"]
 
 [ext_resource type="Texture2D" uid="uid://bnxglynop5yff" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/10-Dead Ground/Dead Ground 04.png" id="1_fyawb"]
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_vm1ox"]
+[ext_resource type="Script" uid="uid://c8l17poenthmg" path="res://Scripts/character.gd" id="1_vm1ox"]
 [ext_resource type="Texture2D" uid="uid://2h4dcuyx7vqk" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="2_vef5l"]
 [ext_resource type="Texture2D" uid="uid://dse8p0o84nso5" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="3_fmv03"]
 [ext_resource type="Texture2D" uid="uid://by4ftj63lykyx" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="4_cerh4"]
@@ -208,16 +208,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lerf4"]
 _data = {
-"anticipation": SubResource("Animation_u4dtc"),
-"attack": SubResource("Animation_ro7w4"),
-"dead hit": SubResource("Animation_ns4v8"),
-"dead_ground": SubResource("Animation_hfiit"),
-"fall": SubResource("Animation_so5mk"),
-"ground": SubResource("Animation_dq3ek"),
-"hit": SubResource("Animation_i5gsq"),
-"idle": SubResource("Animation_he6eu"),
-"jump": SubResource("Animation_krf50"),
-"run": SubResource("Animation_l7nch")
+&"anticipation": SubResource("Animation_u4dtc"),
+&"attack": SubResource("Animation_ro7w4"),
+&"dead hit": SubResource("Animation_ns4v8"),
+&"dead_ground": SubResource("Animation_hfiit"),
+&"fall": SubResource("Animation_so5mk"),
+&"ground": SubResource("Animation_dq3ek"),
+&"hit": SubResource("Animation_i5gsq"),
+&"idle": SubResource("Animation_he6eu"),
+&"jump": SubResource("Animation_krf50"),
+&"run": SubResource("Animation_l7nch")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3gsxy"]
@@ -301,7 +301,7 @@ graph_offset = Vector2(0, -99.5164)
 script = ExtResource("1_vm1ox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("25_55p5v")
+texture = ExtResource("20_cq12i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)
@@ -309,7 +309,7 @@ shape = SubResource("CircleShape2D_rpx27")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lerf4")
+&"": SubResource("AnimationLibrary_lerf4")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]

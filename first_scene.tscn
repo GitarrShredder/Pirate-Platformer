@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c75hw3mvfhbbo" path="res://icon.svg" id="1_7ogue"]
 [ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="2_4qfbx"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="3_852un"]
+[ext_resource type="Script" uid="uid://ceafa1wgtmex8" path="res://Scripts/player.gd" id="3_852un"]
 [ext_resource type="PackedScene" uid="uid://crajuftg2cmyb" path="res://Scenes/Characters/Crabby/crabby.tscn" id="4_gfsxq"]
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="5_oqpa5"]
 

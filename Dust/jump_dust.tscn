@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://78uav4najuul" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 03.png" id="3_e7o58"]
 [ext_resource type="Texture2D" uid="uid://7o0vghidnd0t" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 04.png" id="4_whdcc"]
 [ext_resource type="Texture2D" uid="uid://clba5hin6hwuk" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 05.png" id="5_5qawx"]
-[ext_resource type="Script" path="res://Scripts/dust.gd" id="6_caqxo"]
+[ext_resource type="Script" uid="uid://hmd0ymnfo87q" path="res://Scripts/dust.gd" id="6_caqxo"]
 [ext_resource type="Texture2D" uid="uid://d1rg1gc7ms6of" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 06.png" id="6_r26af"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xg2h2"]
