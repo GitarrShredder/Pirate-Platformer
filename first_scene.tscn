@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://b43hgoemp7d35"]
+[gd_scene load_steps=16 format=4 uid="uid://b43hgoemp7d35"]
 
 [ext_resource type="Texture2D" uid="uid://c75hw3mvfhbbo" path="res://icon.svg" id="1_7ogue"]
 [ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="2_4qfbx"]
 [ext_resource type="Script" uid="uid://ceafa1wgtmex8" path="res://Scripts/player.gd" id="3_852un"]
+[ext_resource type="Script" uid="uid://chu6fk5c2vyi2" path="res://Scripts/camera_2d.gd" id="4_fvsls"]
 [ext_resource type="PackedScene" uid="uid://crajuftg2cmyb" path="res://Scenes/Characters/Crabby/crabby.tscn" id="4_gfsxq"]
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="5_oqpa5"]
 [ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="6_slp24"]
@@ -440,15 +441,18 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dhw01")
 
 [node name="Roger" parent="." instance=ExtResource("2_4qfbx")]
-position = Vector2(560, 441)
+position = Vector2(544, 492)
 _jump_height = 2.0
 
 [node name="Player" type="Node" parent="Roger"]
 script = ExtResource("3_852un")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(589, 445)
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(608, 472)
 zoom = Vector2(2, 2)
+script = ExtResource("4_fvsls")
+_subject = NodePath("../Roger")
+_offset = Vector2(2, -1)
 
 [node name="Crabby" parent="." instance=ExtResource("4_gfsxq")]
 position = Vector2(613, 431)
@@ -487,3 +491,6 @@ position = Vector2(-64, 352)
 
 [node name="Palm Tree7" parent="." instance=ExtResource("9_puuqw")]
 position = Vector2(-256, 384)
+
+[connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
