@@ -21,7 +21,7 @@ var _jump_velocity: float
 @onready var _sprite_2d: Sprite2D = $Sprite2D
 var _was_on_floor : bool
 
-signal changed_direction(is_facing_left : bool)  
+signal changed_direction(_is_facing_left : bool)  
 signal landed(floor_height : float)
 
 
@@ -90,7 +90,7 @@ func _ground_physics(delta : float):
 func _air_physics(delta :float):
 	velocity.y += gravity * delta
 	if _direction:
-		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * delta)
+		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * _air_control * delta)
 
 func _landed():
 	landed.emit(position.y)
@@ -102,5 +102,5 @@ func _spawn_dust(dust: PackedScene):
 	get_parent().add_child(_dust)
 
 
-func _on_changed_direction(is_facing_left: bool) -> void:
+func _on_changed_direction(_is_facing_left: bool) -> void:
 	pass # Replace with function body.

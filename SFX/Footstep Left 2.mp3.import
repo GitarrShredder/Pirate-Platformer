@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhm2dgcra38y7"
+path="res://.godot/imported/Footstep Left 2.mp3-ec39a3ca6752524f0c349940f51f205f.mp3str"
+
+[deps]
+
+source_file="res://SFX/Footstep Left 2.mp3"
+dest_files=["res://.godot/imported/Footstep Left 2.mp3-ec39a3ca6752524f0c349940f51f205f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

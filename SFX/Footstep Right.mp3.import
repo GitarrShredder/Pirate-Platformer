@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byrg5i2e216yb"
+path="res://.godot/imported/Footstep Right.mp3-684c9783360f7053b0d9f3fb7e00f122.mp3str"
+
+[deps]
+
+source_file="res://SFX/Footstep Right.mp3"
+dest_files=["res://.godot/imported/Footstep Right.mp3-684c9783360f7053b0d9f3fb7e00f122.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

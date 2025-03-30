@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cs4el81vlraut"]
+[gd_scene load_steps=65 format=3 uid="uid://cs4el81vlraut"]
 
 [ext_resource type="Script" uid="uid://c8l17poenthmg" path="res://Scripts/character.gd" id="1_04wi7"]
 [ext_resource type="Texture2D" uid="uid://dchhvovty5qdj" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_uadut"]
@@ -21,10 +21,24 @@
 [ext_resource type="Texture2D" uid="uid://dlmgrwhjso4o0" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="17_cdh1r"]
 [ext_resource type="Texture2D" uid="uid://bvkqdc6cdolqj" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 02.png" id="18_xjanh"]
 [ext_resource type="PackedScene" uid="uid://1s4gf1djdptw" path="res://Dust/fall_dust.tscn" id="19_bu8bg"]
+[ext_resource type="AudioStream" uid="uid://bjhf52x33hjx3" path="res://SFX/Footstep Left.mp3" id="22_lx5rq"]
+[ext_resource type="AudioStream" uid="uid://dal8w657s6a1r" path="res://SFX/Footstep Right 2.mp3" id="23_ojx0r"]
+[ext_resource type="AudioStream" uid="uid://dhm2dgcra38y7" path="res://SFX/Footstep Left 2.mp3" id="23_wkig0"]
+[ext_resource type="AudioStream" uid="uid://da3oesgeqypob" path="res://SFX/Footsteps/snd_Footstep earth high left.mp3" id="25_tv3sc"]
+[ext_resource type="AudioStream" uid="uid://byrg5i2e216yb" path="res://SFX/Footstep Right.mp3" id="25_wnbkx"]
+[ext_resource type="AudioStream" uid="uid://bw1flqs8skl7a" path="res://SFX/209171__lukesharples__hagh.wav" id="26_4h3fv"]
+[ext_resource type="AudioStream" uid="uid://chbwg5cdl7gef" path="res://SFX/Footsteps/snd_Footstep earth high right.mp3" id="26_pdtqn"]
+[ext_resource type="AudioStream" uid="uid://ybhgttw1el2k" path="res://SFX/Footsteps/snd_Footstep earth low Left.mp3" id="27_g37ek"]
+[ext_resource type="AudioStream" uid="uid://o4wmmqnwygp2" path="res://SFX/Footsteps/snd_Footstep earth low Right.mp3" id="28_4agn0"]
+[ext_resource type="AudioStream" uid="uid://d6xsmxt215ol" path="res://SFX/Footsteps/snd_Footstep earth med left.mp3" id="29_r1lb3"]
+[ext_resource type="AudioStream" uid="uid://cl0pxhyw8kisy" path="res://SFX/Footsteps/snd_Footstep earth med right.mp3" id="30_dfnu6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otuk8"]
 radius = 7.0
 height = 28.0
+
+[sub_resource type="Animation" id="Animation_lx5rq"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_ib1ix"]
 resource_name = "fall"
@@ -41,6 +55,11 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("16_6qkw1")]
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n3jmn"]
+streams_count = 3
+stream_0/stream = ExtResource("28_4agn0")
+stream_1/stream = ExtResource("27_g37ek")
 
 [sub_resource type="Animation" id="Animation_eh8kc"]
 resource_name = "ground"
@@ -71,6 +90,21 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_n3jmn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_301bh"]
 resource_name = "idle"
@@ -104,6 +138,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("13_jfof2"), ExtResource("14_gfi08"), ExtResource("15_1hfq2")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("26_4h3fv")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wnbkx"]
+streams_count = 11
+stream_0/stream = ExtResource("25_tv3sc")
+stream_1/stream = ExtResource("26_pdtqn")
+stream_2/stream = ExtResource("27_g37ek")
+stream_3/stream = ExtResource("28_4agn0")
+stream_4/stream = ExtResource("29_r1lb3")
+stream_5/stream = ExtResource("30_dfnu6")
 
 [sub_resource type="Animation" id="Animation_5y3bk"]
 resource_name = "run"
@@ -135,9 +193,29 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_wnbkx")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_wnbkx")
+}],
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l85a"]
 _data = {
+&"RESET": SubResource("Animation_lx5rq"),
 &"fall": SubResource("Animation_ib1ix"),
 &"ground": SubResource("Animation_eh8kc"),
 &"idle": SubResource("Animation_301bh"),
@@ -234,19 +312,27 @@ advance_mode = 2
 "states/Without Sword/position" = Vector2(383, 100)
 transitions = ["Start", "Without Sword", SubResource("AnimationNodeStateMachineTransition_pvx2l")]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dnydc"]
+streams_count = 4
+stream_0/stream = ExtResource("22_lx5rq")
+stream_1/stream = ExtResource("23_ojx0r")
+stream_2/stream = ExtResource("23_wkig0")
+stream_3/stream = ExtResource("25_wnbkx")
+
 [node name="Roger" type="CharacterBody2D"]
 position = Vector2(0, -12)
 script = ExtResource("1_04wi7")
 _jump_dust = ExtResource("2_3foa8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("16_6qkw1")
+texture = ExtResource("18_xjanh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_otuk8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+deterministic = true
 libraries = {
 &"": SubResource("AnimationLibrary_2l85a")
 }
@@ -256,3 +342,9 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_7r1th")
 advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("..")
+
+[node name="Steps" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_dnydc")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 12)

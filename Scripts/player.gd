@@ -1,5 +1,6 @@
 extends Node
 
+
 @onready var _character = get_parent()
 # Called when the node enters the scene tree for the first time.
 func _input(event: InputEvent):
@@ -12,3 +13,4 @@ func _input(event: InputEvent):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_character.run(Input.get_axis("run_left", "run_right"))
+	

@@ -443,6 +443,8 @@ shape = SubResource("RectangleShape2D_dhw01")
 [node name="Roger" parent="." instance=ExtResource("2_4qfbx")]
 position = Vector2(544, 492)
 _jump_height = 2.0
+_is_facing_left = true
+_sprites_face_left = true
 
 [node name="Player" type="Node" parent="Roger"]
 script = ExtResource("3_852un")
@@ -453,6 +455,9 @@ zoom = Vector2(2, 2)
 script = ExtResource("4_fvsls")
 _subject = NodePath("../Roger")
 _offset = Vector2(2, -1)
+_look_ahead_trans_type = 1
+_floor_height_trans_type = 1
+_floor_height_duration = 0.5
 
 [node name="Crabby" parent="." instance=ExtResource("4_gfsxq")]
 position = Vector2(613, 431)
