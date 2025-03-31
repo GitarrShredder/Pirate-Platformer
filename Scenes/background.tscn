@@ -1,0 +1,156 @@
+[gd_scene load_steps=23 format=3 uid="uid://bgpd1dmhru3y6"]
+
+[ext_resource type="Texture2D" uid="uid://bk4nx58dsa3pd" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_4aqey"]
+[ext_resource type="Texture2D" uid="uid://8gyak1pawqg8" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="2_xgxeb"]
+[ext_resource type="Texture2D" uid="uid://cpyanfwyx458q" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="3_ltlj5"]
+[ext_resource type="Texture2D" uid="uid://dd7rkiarfge77" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="4_bdh0s"]
+[ext_resource type="Texture2D" uid="uid://ktc7smrse5ns" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="5_7ys8v"]
+[ext_resource type="Texture2D" uid="uid://dnkt5apyavhkd" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="6_1dkp5"]
+[ext_resource type="Texture2D" uid="uid://qpt0xo5rf635" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="7_jn2ok"]
+[ext_resource type="Texture2D" uid="uid://kd063e0rd5ed" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" id="8_jieww"]
+[ext_resource type="Texture2D" uid="uid://b4816dhcdlrqv" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" id="9_owiv4"]
+[ext_resource type="Texture2D" uid="uid://b348qttauf4tf" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 03.png" id="10_84a6y"]
+[ext_resource type="Texture2D" uid="uid://dn251fphl2du3" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 04.png" id="11_fkdu8"]
+[ext_resource type="Texture2D" uid="uid://dy4n6ei2fsreh" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 01.png" id="12_jieww"]
+[ext_resource type="Texture2D" uid="uid://olpl7qky5ndw" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" id="13_owiv4"]
+[ext_resource type="Texture2D" uid="uid://cl7yqyeu5dxef" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 03.png" id="14_84a6y"]
+[ext_resource type="Texture2D" uid="uid://bp20x440yimvb" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" id="15_fkdu8"]
+[ext_resource type="Texture2D" uid="uid://c5b7b5fj2e8us" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="16_owiv4"]
+[ext_resource type="Texture2D" uid="uid://dg1j8weitemwl" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="17_kx0mk"]
+[ext_resource type="Texture2D" uid="uid://cf2xkam0f1jyi" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="18_yfwmw"]
+[ext_resource type="Texture2D" uid="uid://qsbcyd8o1qam" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="19_237w7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdh0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bdh0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ys8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1dkp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jn2ok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ys8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jieww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_owiv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_84a6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fkdu8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jieww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jieww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_owiv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_84a6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fkdu8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Background" type="Node2D"]
+z_index = -10
+texture_filter = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="AdditionalSky" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-9.09495e-13, -160)
+scale = Vector2(24, 6.5)
+texture = ExtResource("1_4aqey")
+
+[node name="AdditionalWater" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(0, 144)
+scale = Vector2(24, 6.5)
+texture = ExtResource("2_xgxeb")
+
+[node name="BgImage" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(0, -24)
+scale = Vector2(2, 1)
+texture = ExtResource("3_ltlj5")
+
+[node name="WaterReflectBig" type="AnimatedSprite2D" parent="Parallax2D"]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_bdh0s")
+autoplay = "default"
+frame_progress = 0.980695
+
+[node name="WaterReflectMed" type="AnimatedSprite2D" parent="Parallax2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_7ys8v")
+autoplay = "default"
+frame_progress = 0.521642
+
+[node name="WaterReflectSmall" type="AnimatedSprite2D" parent="Parallax2D"]
+position = Vector2(0, 24)
+sprite_frames = SubResource("SpriteFrames_jieww")
+autoplay = "default"
+frame_progress = 0.758136
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(448, 0)
+autoscroll = Vector2(37, 0)
+repeat_times = 3
+
+[node name="BigClouds" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-224, -56)
+texture = ExtResource("16_owiv4")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+repeat_size = Vector2(448, 0)
+autoscroll = Vector2(17, 0)
+repeat_times = 3
+
+[node name="SmallCloud3" type="Sprite2D" parent="Parallax2D3"]
+position = Vector2(0, -96)
+texture = ExtResource("19_237w7")
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+repeat_size = Vector2(448, 0)
+autoscroll = Vector2(19, 0)
+repeat_times = 3
+
+[node name="SmallCloud2" type="Sprite2D" parent="Parallax2D4"]
+position = Vector2(-232, -120)
+texture = ExtResource("18_yfwmw")
+
+[node name="Parallax2D5" type="Parallax2D" parent="."]
+repeat_size = Vector2(448, 0)
+autoscroll = Vector2(13, 0)
+repeat_times = 3
+
+[node name="SmallCloud1" type="Sprite2D" parent="Parallax2D5"]
+position = Vector2(-112, -144)
+texture = ExtResource("17_kx0mk")
