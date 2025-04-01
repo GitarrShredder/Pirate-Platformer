@@ -85,6 +85,7 @@ z_index = -10
 texture_filter = 1
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+ignore_camera_scroll = true
 
 [node name="AdditionalSky" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(-9.09495e-13, -160)
@@ -123,6 +124,7 @@ frame_progress = 0.758136
 repeat_size = Vector2(448, 0)
 autoscroll = Vector2(37, 0)
 repeat_times = 3
+ignore_camera_scroll = true
 
 [node name="BigClouds" type="Sprite2D" parent="Parallax2D2"]
 position = Vector2(-224, -56)
@@ -132,6 +134,7 @@ texture = ExtResource("16_owiv4")
 repeat_size = Vector2(448, 0)
 autoscroll = Vector2(17, 0)
 repeat_times = 3
+ignore_camera_scroll = true
 
 [node name="SmallCloud3" type="Sprite2D" parent="Parallax2D3"]
 position = Vector2(0, -96)
@@ -141,6 +144,7 @@ texture = ExtResource("19_237w7")
 repeat_size = Vector2(448, 0)
 autoscroll = Vector2(19, 0)
 repeat_times = 3
+ignore_camera_scroll = true
 
 [node name="SmallCloud2" type="Sprite2D" parent="Parallax2D4"]
 position = Vector2(-232, -120)
@@ -148,8 +152,9 @@ texture = ExtResource("18_yfwmw")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 repeat_size = Vector2(448, 0)
-autoscroll = Vector2(13, 0)
+autoscroll = Vector2(7, 0)
 repeat_times = 3
+ignore_camera_scroll = true
 
 [node name="SmallCloud1" type="Sprite2D" parent="Parallax2D5"]
 position = Vector2(-112, -144)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b43hgoemp7d35"]
+[gd_scene load_steps=25 format=4 uid="uid://b43hgoemp7d35"]
 
 [ext_resource type="Texture2D" uid="uid://c75hw3mvfhbbo" path="res://icon.svg" id="1_7ogue"]
 [ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="2_4qfbx"]
@@ -11,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://b0os4306vf8fk" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="7_ru1km"]
 [ext_resource type="Texture2D" uid="uid://dxvpeyw7pbyph" path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="8_j5e5f"]
 [ext_resource type="PackedScene" uid="uid://cigusp7g8swto" path="res://Decorations/palm_tree.tscn" id="9_puuqw"]
+[ext_resource type="Script" uid="uid://ds5eaxl7ocofm" path="res://Scripts/water.gd" id="12_flqep"]
+[ext_resource type="Texture2D" uid="uid://vrssu62lfacb" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="12_s6oat"]
+[ext_resource type="Texture2D" uid="uid://hwokybcqpscu" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="13_ope4g"]
+[ext_resource type="Texture2D" uid="uid://be12r4he34s6y" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="14_flqep"]
+[ext_resource type="Texture2D" uid="uid://ctsyf4da6mt03" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="15_23eum"]
+[ext_resource type="Texture2D" uid="uid://ch4glq5rdtwm3" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="16_ope4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhw01"]
 size = Vector2(125, 124)
@@ -422,6 +428,29 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_puuqw")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yndwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_s6oat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ope4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_flqep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_23eum")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ope4g"]
+b = Vector2(192, 0)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
@@ -452,6 +481,7 @@ _floor_height_trans_type = 1
 _floor_height_duration = 0.5
 
 [node name="Background" parent="Camera2D" instance=ExtResource("3_f030i")]
+z_index = -1
 
 [node name="Roger" parent="." instance=ExtResource("2_4qfbx")]
 position = Vector2(544, 492)
@@ -500,5 +530,33 @@ position = Vector2(-64, 352)
 [node name="Palm Tree7" parent="." instance=ExtResource("9_puuqw")]
 position = Vector2(-256, 384)
 
+[node name="Water" type="Area2D" parent="."]
+z_index = 10
+script = ExtResource("12_flqep")
+
+[node name="Bottom" type="Sprite2D" parent="Water"]
+position = Vector2(96, 40)
+scale = Vector2(2, 1)
+texture = ExtResource("16_ope4g")
+
+[node name="Surface" type="Node" parent="Water"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Water/Surface"]
+position = Vector2(48, 8)
+sprite_frames = SubResource("SpriteFrames_yndwj")
+autoplay = "default"
+frame_progress = 0.734934
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Water/Surface"]
+position = Vector2(144, 8)
+sprite_frames = SubResource("SpriteFrames_yndwj")
+autoplay = "default"
+frame_progress = 0.152791
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+shape = SubResource("SegmentShape2D_ope4g")
+
 [connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
+[connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

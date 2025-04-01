@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Character extends CharacterBody2D
 
 
 
@@ -48,11 +48,20 @@ func jump():
 	if is_on_floor():
 		velocity.y = _jump_velocity
 		_spawn_dust(_jump_dust)
-
+		
 func stop_jump():
 	if velocity.y < 0: #decreasing?
 		velocity.y = 0
 #endregion
+
+func enter_water(water_surface_hight : float):
+	pass
+	
+func exit_water():
+	pass
+
+func dive():
+	pass
 
 func _ready() -> void:
 	_speed *= Global.ppt
