@@ -1,5 +1,10 @@
 extends Camera2D
 
+var _is_bound : bool
+var _min : Vector2
+var _max : Vector2
+
+
 @export var _subject : Node2D
 @export var _offset : Vector2
 @export var _look_ahead_trans_type : Tween.TransitionType
@@ -17,18 +22,29 @@ var _floor_height_tween: Tween
 func _ready() -> void:
 	_offset *= Global.ppt
 
+func set_bounds(min_boundary: Vector2, max_boundary : Vector2):
+	_is_bound = true
+	_min = min_boundary
+	_max = max_boundary
+	var half_zoomed_size = get_viewport_rect().size / zoom / 2
+	_min += half_zoomed_size
+	_max += half_zoomed_size
+
 func _process(delta: float) -> void:
 	position.x = _subject.position.x +_offset.x + _look_ahead_distance
 	position.y = _floor_height + _offset.y
+	if _is_bound:
+		position.x = clamp(position.x, _min.x, _max.x)
+		position.y = clamp(position.y, _min.y, _max.y)
 
 func _on_subject_changed_direction(is_facing_left: bool) -> void:
-	if _look_ahead_tween && _look_ahead_tween.is_running():
+	if _look_ahead_tween and _look_ahead_tween.is_running():
 		_look_ahead_tween.kill()
 	_look_ahead_tween = create_tween().set_trans(_look_ahead_trans_type).set_ease(_look_ahead_ease_type)
 	_look_ahead_tween.tween_property(self,"_look_ahead_distance", _offset.x*(-1 if is_facing_left else 1), _look_ahead_duration)
 
 func _on_subject_landed(floor_height: float) -> void:
-	if _floor_height_tween && _floor_height_tween.is_running():
+	if _floor_height_tween and _floor_height_tween.is_running():
 		_look_ahead_tween.kill()
 	_look_ahead_tween = create_tween().set_trans(_floor_height_trans_type).set_ease(_floor_height_ease_type)
 	_look_ahead_tween.tween_property(self,"_floor_height", floor_height, _floor_height_duration)

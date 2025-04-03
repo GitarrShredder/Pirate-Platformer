@@ -37,7 +37,11 @@ func _spawn_splash_exit(x: float):
 		print("timer 2 start")
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is TileMap:
+	if body is TileMapLayer:
+		return
+	if body is StaticBody2D:
+		return
+	if body is AnimatedSprite2D:
 		return
 	_spawn_splash_enter(body.position.x)
 	if body is Character:
@@ -56,9 +60,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	_splashsfx_has_played = false
-	print(" timeout") # Replace with function body.
+	print(" timeout") 
 
 
 func _on_timer_2_timeout() -> void:
 	_splash_exit_has_played = false
-	 # Replace with function body.
+	 

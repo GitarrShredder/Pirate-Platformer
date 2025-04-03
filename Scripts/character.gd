@@ -1,6 +1,8 @@
 class_name Character extends CharacterBody2D
 
-
+var _is_bound : bool
+var _min : Vector2
+var _max : Vector2
 
 
 @export_category("Locomotion")
@@ -19,7 +21,7 @@ var _was_on_floor : bool
 @export_category("Sprite")
 @export var _is_facing_left : bool
 @export var _sprites_face_left : bool
-@onready var _sprite_2d: Sprite2D = $Sprite2D
+@onready var _sprite: Sprite2D = $Sprite2D
 
 
 @export_category("swim")
@@ -42,12 +44,12 @@ var _direction : float
 
 func face_left():
 	_is_facing_left = true
-	_sprite_2d.flip_h = true
+	_sprite.flip_h = true
 	changed_direction.emit(_is_facing_left)
 		
 func face_right():
 	_is_facing_left = false
-	_sprite_2d.flip_h = false
+	_sprite.flip_h = false
 	changed_direction.emit(_is_facing_left)
 	
 func run(direction : float):
@@ -93,11 +95,22 @@ func _ready() -> void:
 	_jump_height *= Global.ppt
 	_jump_velocity = sqrt(_jump_height * gravity * 2) * -1
 	face_left() if _is_facing_left else face_right()
+	
+func set_bounds(min_boundary: Vector2, max_boundary : Vector2):
+	_is_bound = true
+	_min = min_boundary
+	_max = max_boundary
+	var sprite_size : Vector2 = _sprite.get_rect().size
+	_min.x += sprite_size.x / 2
+	_max.x -= sprite_size.x / 2
+	_min.y += sprite_size.y 
+
+	
 
 func _physics_process(delta: float) -> void:
-	if not _is_facing_left && sign(_direction) == -1:
+	if not _is_facing_left and sign(_direction) == -1:
 		face_left()
-	elif _is_facing_left && sign(_direction) ==1:
+	elif _is_facing_left and sign(_direction) ==1:
 		face_right()
 	if _is_in_water:
 		_water_physics(delta)
@@ -108,8 +121,12 @@ func _physics_process(delta: float) -> void:
 		_air_physics(delta)
 	_was_on_floor = is_on_floor()
 	move_and_slide()
-	if not _was_on_floor && is_on_floor():
+	if not _was_on_floor and is_on_floor():
 		_landed()
+	if _is_bound:
+		position.x = clamp(position.x, _min.x, _max.x)
+		position.y = clamp(position.y, _min.y, _max.y)
+	
 	# Add the gravity.
 func _ground_physics(delta : float):
 	if _direction == 0:
@@ -144,7 +161,7 @@ func _landed():
 func _spawn_dust(dust: PackedScene):
 	var _dust = dust.instantiate()
 	_dust.position = position
-	_dust.flip_h = _sprite_2d.flip_h
+	_dust.flip_h = _sprite.flip_h
 	get_parent().add_child(_dust)
 
 

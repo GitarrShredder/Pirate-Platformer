@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b43hgoemp7d35"]
+
+[ext_resource type="Script" uid="uid://chu6fk5c2vyi2" path="res://Scripts/camera_2d.gd" id="1_7pswh"]
+[ext_resource type="Script" uid="uid://cd1o8c7ef7o4o" path="res://Scripts/game_manager.gd" id="1_34bfm"]
+[ext_resource type="PackedScene" uid="uid://bgpd1dmhru3y6" path="res://Scenes/background.tscn" id="2_34bfm"]
+[ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="3_ovrsl"]
+[ext_resource type="Script" uid="uid://ceafa1wgtmex8" path="res://Scripts/player.gd" id="4_hbaan"]
+[ext_resource type="PackedScene" uid="uid://xy5pjhx41s3s" path="res://Levels/level1-1.tscn" id="5_he5fp"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_34bfm")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(64, -16)
+zoom = Vector2(2, 2)
+script = ExtResource("1_7pswh")
+_subject = NodePath("../Roger")
+_offset = Vector2(2, -1)
+_look_ahead_trans_type = 1
+_floor_height_trans_type = 1
+_floor_height_duration = 0.5
+
+[node name="Background" parent="Camera2D" instance=ExtResource("2_34bfm")]
+z_index = -1
+
+[node name="Roger" parent="." instance=ExtResource("3_ovrsl")]
+position = Vector2(0, 4)
+_jump_height = 2.0
+_is_facing_left = true
+_sprites_face_left = true
+
+[node name="Player" type="Node" parent="Roger"]
+script = ExtResource("4_hbaan")
+
+[node name="Level" parent="." instance=ExtResource("5_he5fp")]
+
+[connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]

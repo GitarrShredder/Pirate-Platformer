@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://xy5pjhx41s3s"]
+[gd_scene load_steps=24 format=4 uid="uid://xy5pjhx41s3s"]
 
 [ext_resource type="Texture2D" uid="uid://b0os4306vf8fk" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3w4sc"]
 [ext_resource type="Texture2D" uid="uid://dxvpeyw7pbyph" path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_fvkow"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://crajuftg2cmyb" path="res://Scenes/Characters/Crabby/crabby.tscn" id="13_dndme"]
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="14_o03hw"]
 [ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="15_csecg"]
+[ext_resource type="Script" uid="uid://c2ets3jddn6ka" path="res://Scripts/level.gd" id="16_fvkow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5e5f"]
 texture = ExtResource("1_3w4sc")
@@ -446,11 +447,16 @@ animations = [{
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ope4g"]
 b = Vector2(2880, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w4sc"]
+size = Vector2(2888, 592)
+
 [node name="Level" type="Area2D"]
+collision_mask = 0
+script = ExtResource("16_fvkow")
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 position = Vector2(-544, -488)
-tile_map_data = PackedByteArray("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AAD2/xMAAAABAAIAAAD3/xMAAAACAAIAAAD3/xIAAAAHAAQAAAD2/xIAAAABAAAAAAD3/xEAAAAPAAMAAAD4/xEAAAACAAQAAAD8/xMAAAAAAAQAAAD9/xMAAAABAAQAAAD+/xMAAAAKAAQAAAD+/xIAAAAAAAAAAAD//xIAAAABAAAAAAAAABIAAAACAAAAAAAAABMAAAAJAAQAAAD//xMAAAABAAIAAAABABMAAAABAAQAAAACABMAAAABAAQAAAADABMAAAABAAQAAAAEABMAAAABAAQAAAAFABMAAAAKAAQAAAAFABIAAAAAAAAAAAAGABIAAAACAAAAAAAGABMAAAAJAAQAAAAHABMAAAABAAQAAAAIABMAAAABAAQAAAAJABMAAAABAAQAAAAKABMAAAABAAQAAAALABMAAAACAAQAAAAPABMAAAABAAQAAAAQABMAAAABAAQAAAARABMAAAABAAQAAAASABMAAAABAAQAAAATABMAAAABAAQAAAAUABMAAAAQAAQAAAAUABIAAAAPAAMAAAAVABIAAAABAAQAAAAWABIAAAAQAAQAAAAWABEAAAAEAAEAAAAWABAAAAAQAAMAAAAVABAAAAABAAQAAAAUABAAAAAPAAQAAAAUAA8AAAAQAAMAAAATAA8AAAABAAQAAAASAA8AAAAPAAMAAAASABAAAAAQAAQAAAARABAAAAABAAQAAAAQABAAAAABAAQAAAAPABAAAAAPAAMAAAAPABEAAAAEAAIAAAAOABMAAAAAAAQAAAAZABMAAAAAAAQAAAAaABMAAAACAAQAAAAuAA4AAAABAAIAAAAvAA4AAAABAAIAAAAwAA4AAAABAAIAAAAxAA4AAAAHAAAAAAAuAA0AAAABAAAAAAAvAA0AAAAHAAEAAAAvAAwAAAAAAAAAAAAwAAwAAAACAAAAAAAwAA0AAAAGAAEAAAAxAA0AAAABAAAAAAAyAA0AAAABAAAAAAAzAA0AAAACAAAAAAA=")
+tile_map_data = PackedByteArray("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AAD8/xMAAAAAAAQAAAD9/xMAAAABAAQAAAD+/xMAAAAKAAQAAAD+/xIAAAAAAAAAAAD//xIAAAABAAAAAAAAABIAAAACAAAAAAAAABMAAAAJAAQAAAD//xMAAAABAAIAAAABABMAAAABAAQAAAACABMAAAABAAQAAAADABMAAAABAAQAAAAEABMAAAABAAQAAAAFABMAAAAKAAQAAAAFABIAAAAAAAAAAAAGABIAAAACAAAAAAAGABMAAAAJAAQAAAAHABMAAAABAAQAAAAIABMAAAABAAQAAAAJABMAAAABAAQAAAAKABMAAAABAAQAAAALABMAAAACAAQAAAAPABMAAAABAAQAAAAQABMAAAABAAQAAAARABMAAAABAAQAAAASABMAAAABAAQAAAATABMAAAABAAQAAAAUABMAAAAQAAQAAAAUABIAAAAPAAMAAAAVABIAAAABAAQAAAAWABIAAAAQAAQAAAAWABEAAAAEAAEAAAAWABAAAAAQAAMAAAAVABAAAAABAAQAAAAUABAAAAAPAAQAAAAUAA8AAAAQAAMAAAATAA8AAAABAAQAAAASAA8AAAAPAAMAAAASABAAAAAQAAQAAAARABAAAAABAAQAAAAQABAAAAABAAQAAAAPABAAAAAPAAMAAAAPABEAAAAEAAIAAAAOABMAAAAAAAQAAAAZABMAAAAAAAQAAAAaABMAAAACAAQAAAAuAA4AAAABAAIAAAAvAA4AAAABAAIAAAAwAA4AAAABAAIAAAAxAA4AAAAHAAAAAAAuAA0AAAABAAAAAAAvAA0AAAAHAAEAAAAvAAwAAAAAAAAAAAAwAAwAAAACAAAAAAAwAA0AAAAGAAEAAAAxAA0AAAABAAAAAAAyAA0AAAABAAAAAAAzAA0AAAACAAAAAAA=")
 tile_set = SubResource("TileSet_slp24")
 
 [node name="Roots" type="TileMapLayer" parent="Terrain"]
@@ -459,7 +465,8 @@ tile_set = SubResource("TileSet_fvsls")
 
 [node name="Water" type="Area2D" parent="."]
 z_index = 10
-position = Vector2(-1016, 144)
+position = Vector2(-1024, 152)
+collision_layer = 2
 script = ExtResource("3_jit6h")
 _splash = ExtResource("4_nu3ko")
 
@@ -471,181 +478,181 @@ texture = ExtResource("5_c83vy")
 [node name="Surface" type="Node2D" parent="Water"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-424, 640)
+position = Vector2(48, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-328, 640)
+position = Vector2(144, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-616, 640)
+position = Vector2(-144, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-520, 640)
+position = Vector2(-48, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-808, 640)
+position = Vector2(-336, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-712, 640)
+position = Vector2(-240, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-232, 640)
+position = Vector2(240, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-136, 640)
+position = Vector2(336, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-40, 640)
+position = Vector2(432, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(56, 640)
+position = Vector2(528, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(152, 640)
+position = Vector2(624, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(248, 640)
+position = Vector2(720, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(344, 640)
+position = Vector2(816, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(440, 640)
+position = Vector2(912, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(536, 640)
+position = Vector2(1008, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(632, 640)
+position = Vector2(1104, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(728, 640)
+position = Vector2(1200, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(824, 640)
+position = Vector2(1296, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(920, 640)
+position = Vector2(1392, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1016, 640)
+position = Vector2(1488, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1112, 640)
+position = Vector2(1584, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1208, 640)
+position = Vector2(1680, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1304, 640)
+position = Vector2(1776, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1400, 640)
+position = Vector2(1872, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1496, 640)
+position = Vector2(1968, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1592, 640)
+position = Vector2(2064, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1688, 640)
+position = Vector2(2160, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1784, 640)
+position = Vector2(2256, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
 
 [node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1880, 640)
+position = Vector2(2352, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.734934
 
 [node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(1976, 640)
+position = Vector2(2448, 8)
 sprite_frames = SubResource("SpriteFrames_yndwj")
 autoplay = "default"
 frame_progress = 0.152791
@@ -705,6 +712,11 @@ position = Vector2(729, 446)
 
 [node name="Pink Star" parent="Ememies" instance=ExtResource("15_csecg")]
 position = Vector2(674, 423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 48)
+shape = SubResource("RectangleShape2D_3w4sc")
+debug_color = Color(0, 0.545098, 0.635294, 0.027451)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]
