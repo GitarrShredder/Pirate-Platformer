@@ -132,7 +132,7 @@ func _ground_physics(delta : float):
 	if _direction == 0:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * delta)
 	#accelerate from not moving or moving in the same direction
-	elif velocity.x == 0 || sign(_direction)== sign(velocity.x):
+	elif velocity.x == 0 or sign(_direction)== sign(velocity.x):
 		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * delta)
 	#decelerate if trying to move in the opposite direction
 	else:
