@@ -122,7 +122,7 @@ frame_progress = 0.758136
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 repeat_size = Vector2(448, 0)
-autoscroll = Vector2(37, 0)
+autoscroll = Vector2(23, 0)
 repeat_times = 3
 ignore_camera_scroll = true
 
@@ -142,7 +142,7 @@ texture = ExtResource("19_237w7")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 repeat_size = Vector2(448, 0)
-autoscroll = Vector2(19, 0)
+autoscroll = Vector2(11, 0)
 repeat_times = 3
 ignore_camera_scroll = true
 
@@ -151,8 +151,8 @@ position = Vector2(-232, -120)
 texture = ExtResource("18_yfwmw")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
-repeat_size = Vector2(448, 0)
-autoscroll = Vector2(7, 0)
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(23, 0)
 repeat_times = 3
 ignore_camera_scroll = true
 

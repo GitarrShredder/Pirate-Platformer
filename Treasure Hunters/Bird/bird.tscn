@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://6fp1igh318sg"]
+
+[ext_resource type="Texture2D" uid="uid://b8l0av62k8xfd" path="res://Treasure Hunters/Bird/BirdSprite.png" id="1_opqy5"]
+[ext_resource type="Script" uid="uid://cjepfy36kxpn8" path="res://Treasure Hunters/Bird/bird.gd" id="2_hide2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_237w7"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr31u"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slbr4"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0guq"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxjft"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l0ut"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0a7n"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dibti"]
+atlas = ExtResource("1_opqy5")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nu3ko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_237w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr31u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slbr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0guq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxjft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l0ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0a7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dibti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="Bird" type="AnimatedSprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_nu3ko")
+autoplay = "default"
+frame_progress = 0.523609
+script = ExtResource("2_hide2")
+_fly_speed = 1.0

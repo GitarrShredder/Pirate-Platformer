@@ -15,10 +15,13 @@ func _spawn_splash_enter(x: float):
 	var splash = _splash.instantiate()
 	add_child(splash)
 	splash.global_position.x = x
+	_splashsfx.global_position.x = x
+	
 	if _splashsfx_has_played == true:
 		return
 	else:
 		_splashsfx.play()
+		
 		_splashsfx_has_played = true
 		timer.start()
 		print("timer start")
@@ -27,10 +30,13 @@ func _spawn_splash_exit(x: float):
 	var splash = _splash.instantiate()
 	add_child(splash)
 	splash.global_position.x = x
+	_splash_exit.global_position.x = x
+	
 	if _splash_exit_has_played == true:
 		return
 	else:
 		_splash_exit.play()
+		#_splashsfx.global_position.x = x
 		print("splash 2")
 		_splash_exit_has_played = true
 		timer_2.start()
@@ -38,10 +44,6 @@ func _spawn_splash_exit(x: float):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		return
-	if body is StaticBody2D:
-		return
-	if body is AnimatedSprite2D:
 		return
 	_spawn_splash_enter(body.position.x)
 	if body is Character:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://xy5pjhx41s3s"]
+[gd_scene load_steps=25 format=4 uid="uid://xy5pjhx41s3s"]
 
 [ext_resource type="Texture2D" uid="uid://b0os4306vf8fk" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3w4sc"]
 [ext_resource type="Texture2D" uid="uid://dxvpeyw7pbyph" path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_fvkow"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="14_o03hw"]
 [ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="15_csecg"]
 [ext_resource type="Script" uid="uid://c2ets3jddn6ka" path="res://Scripts/level.gd" id="16_fvkow"]
+[ext_resource type="PackedScene" uid="uid://6fp1igh318sg" path="res://Treasure Hunters/Bird/bird.tscn" id="17_jit6h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5e5f"]
 texture = ExtResource("1_3w4sc")
@@ -782,6 +783,10 @@ position = Vector2(674, 423)
 position = Vector2(36, 48)
 shape = SubResource("RectangleShape2D_3w4sc")
 debug_color = Color(0, 0.545098, 0.635294, 0.027451)
+
+[node name="Bird" parent="." instance=ExtResource("17_jit6h")]
+position = Vector2(336, -64)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]
