@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b43hgoemp7d35"]
+[gd_scene load_steps=8 format=3 uid="uid://b43hgoemp7d35"]
 
 [ext_resource type="Script" uid="uid://chu6fk5c2vyi2" path="res://Scripts/camera_2d.gd" id="1_7pswh"]
 [ext_resource type="Script" uid="uid://cd1o8c7ef7o4o" path="res://Scripts/game_manager.gd" id="1_34bfm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cs4el81vlraut" path="res://Scenes/Characters/Roger/roger.tscn" id="3_ovrsl"]
 [ext_resource type="Script" uid="uid://ceafa1wgtmex8" path="res://Scripts/player.gd" id="4_hbaan"]
 [ext_resource type="PackedScene" uid="uid://xy5pjhx41s3s" path="res://Levels/level1-1.tscn" id="5_he5fp"]
+[ext_resource type="PackedScene" uid="uid://dnpueqtsoficb" path="res://Levels/level1-2.tscn" id="7_ovrsl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_34bfm")
@@ -33,6 +34,9 @@ _sprites_face_left = true
 script = ExtResource("4_hbaan")
 
 [node name="Level" parent="." instance=ExtResource("5_he5fp")]
+
+[node name="Level2" parent="." instance=ExtResource("7_ovrsl")]
+position = Vector2(-632, 2240)
 
 [connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
