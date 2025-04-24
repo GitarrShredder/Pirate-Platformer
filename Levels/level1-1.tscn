@@ -1,14 +1,14 @@
-[gd_scene load_steps=25 format=4 uid="uid://xy5pjhx41s3s"]
+[gd_scene load_steps=30 format=4 uid="uid://xy5pjhx41s3s"]
 
-[ext_resource type="Texture2D" uid="uid://b0os4306vf8fk" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3w4sc"]
-[ext_resource type="Texture2D" uid="uid://dxvpeyw7pbyph" path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_fvkow"]
+[ext_resource type="Texture2D" uid="uid://b0os4306vf8fk" path="res://TreasureHunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3w4sc"]
+[ext_resource type="Texture2D" uid="uid://dxvpeyw7pbyph" path="res://TreasureHunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_fvkow"]
 [ext_resource type="Script" uid="uid://ds5eaxl7ocofm" path="res://Scripts/water.gd" id="3_jit6h"]
 [ext_resource type="PackedScene" uid="uid://ns1va7ynd8w6" path="res://Dust/splash.tscn" id="4_nu3ko"]
-[ext_resource type="Texture2D" uid="uid://ch4glq5rdtwm3" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="5_c83vy"]
-[ext_resource type="Texture2D" uid="uid://vrssu62lfacb" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="6_pvauc"]
-[ext_resource type="Texture2D" uid="uid://hwokybcqpscu" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="7_x3vsd"]
-[ext_resource type="Texture2D" uid="uid://be12r4he34s6y" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="8_gvxgt"]
-[ext_resource type="Texture2D" uid="uid://ctsyf4da6mt03" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="9_joevt"]
+[ext_resource type="Texture2D" uid="uid://ch4glq5rdtwm3" path="res://TreasureHunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="5_c83vy"]
+[ext_resource type="Texture2D" uid="uid://vrssu62lfacb" path="res://TreasureHunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="6_pvauc"]
+[ext_resource type="Texture2D" uid="uid://hwokybcqpscu" path="res://TreasureHunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="7_x3vsd"]
+[ext_resource type="Texture2D" uid="uid://be12r4he34s6y" path="res://TreasureHunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="8_gvxgt"]
+[ext_resource type="Texture2D" uid="uid://ctsyf4da6mt03" path="res://TreasureHunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="9_joevt"]
 [ext_resource type="AudioStream" uid="uid://d15jjftad1vah" path="res://SFX/Water/Water_splash.wav" id="10_7jxji"]
 [ext_resource type="AudioStream" uid="uid://cs8jqea65qrrg" path="res://SFX/Water/Water_splash_exit.wav" id="11_tn030"]
 [ext_resource type="PackedScene" uid="uid://cigusp7g8swto" path="res://Decorations/palm_tree.tscn" id="12_xbtfx"]
@@ -16,7 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="14_o03hw"]
 [ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="15_csecg"]
 [ext_resource type="Script" uid="uid://c2ets3jddn6ka" path="res://Scripts/level.gd" id="16_fvkow"]
-[ext_resource type="PackedScene" uid="uid://6fp1igh318sg" path="res://Treasure Hunters/Bird/bird.tscn" id="17_jit6h"]
+[ext_resource type="PackedScene" uid="uid://c886djmuxxqgb" path="res://Treasure/silver_coin.tscn" id="17_jit6h"]
+[ext_resource type="AudioStream" uid="uid://biq6anibxnns8" path="res://Music/Roam 1 Godot interactive.ogg" id="18_pvauc"]
+[ext_resource type="PackedScene" uid="uid://d1lsn10w1tfyd" path="res://Treasure/gold_coin.tscn" id="18_x3vsd"]
+[ext_resource type="AudioStream" uid="uid://b2j1q6rkgbee0" path="res://Music/Fight 1 Godot interactive.ogg" id="19_x3vsd"]
+[ext_resource type="AudioStream" uid="uid://bw0bs417t8ayd" path="res://Music/Stinger 1 godot interactive.ogg" id="20_gvxgt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5e5f"]
 texture = ExtResource("1_3w4sc")
@@ -489,6 +493,36 @@ b = Vector2(2880, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w4sc"]
 size = Vector2(2888, 592)
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_joevt"]
+clip_count = 3
+clip_0/name = &"Roam 1 Mp 3"
+clip_0/stream = ExtResource("18_pvauc")
+clip_0/auto_advance = 0
+clip_1/name = &"Fight 1 Godot Interactive"
+clip_1/stream = ExtResource("19_x3vsd")
+clip_1/auto_advance = 0
+clip_2/name = &"Stinger 1 Godot Interactive"
+clip_2/stream = ExtResource("20_gvxgt")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 0.5,
+"fade_mode": 3,
+"filler_clip": 2,
+"from_time": 1,
+"to_time": 0,
+"use_filler_clip": true
+},
+Vector2i(1, 0): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"filler_clip": 2,
+"from_time": 1,
+"to_time": 0,
+"use_filler_clip": true
+}
+}
+
 [node name="Level" type="Area2D"]
 collision_mask = 0
 script = ExtResource("16_fvkow")
@@ -506,6 +540,7 @@ tile_set = SubResource("TileSet_fvsls")
 z_index = 10
 position = Vector2(-1024, 152)
 collision_layer = 2
+collision_mask = 16843008
 script = ExtResource("3_jit6h")
 _splash = ExtResource("4_nu3ko")
 
@@ -784,11 +819,32 @@ position = Vector2(36, 48)
 shape = SubResource("RectangleShape2D_3w4sc")
 debug_color = Color(0, 0.545098, 0.635294, 0.027451)
 
-[node name="Bird" parent="." instance=ExtResource("17_jit6h")]
-position = Vector2(336, -64)
-scale = Vector2(0.5, 0.5)
+[node name="BirdSpawner" type="Node" parent="."]
+
+[node name="BirdL" type="Marker2D" parent="."]
+position = Vector2(1562, -50)
+
+[node name="BirdU" type="Marker2D" parent="."]
+position = Vector2(1562, -200)
+
+[node name="BirdTimer" type="Timer" parent="."]
+wait_time = 45.0
+autostart = true
+
+[node name="Treasure" type="Node2D" parent="."]
+
+[node name="Silver Coin" parent="Treasure" instance=ExtResource("17_jit6h")]
+position = Vector2(-48, -9)
+
+[node name="Gold Coin" parent="Treasure" instance=ExtResource("18_x3vsd")]
+position = Vector2(-227, 71)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_joevt")
+bus = &"Music"
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]
 [connection signal="timeout" from="Water/Timer" to="Water" method="_on_timer_timeout"]
 [connection signal="timeout" from="Water/Timer2" to="Water" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="BirdTimer" to="." method="_on_bird_timer_timeout"]

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Pirate Platformer"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png"
+config/icon="res://TreasureHunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png"
 
 [autoload]
 
@@ -42,6 +42,11 @@ jump={
 [layer_names]
 
 2d_render/layer_2="Water"
+2d_physics/layer_1="Terrain"
+2d_physics/layer_2="Water"
+2d_physics/layer_9="Player"
+2d_physics/layer_17="Enemy"
+2d_physics/layer_25="Treasure"
 
 [physics]
 

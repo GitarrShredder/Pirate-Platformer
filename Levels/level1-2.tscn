@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://dnpueqtsoficb"]
 
 [ext_resource type="Script" uid="uid://c2ets3jddn6ka" path="res://Scripts/level.gd" id="1_64xrg"]
-[ext_resource type="Texture2D" uid="uid://dv35idwffp2nr" path="res://Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_hfc0n"]
-[ext_resource type="Texture2D" uid="uid://bf7d6wj8f464q" path="res://Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="3_7mw8u"]
+[ext_resource type="Texture2D" uid="uid://dv35idwffp2nr" path="res://TreasureHunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_hfc0n"]
+[ext_resource type="Texture2D" uid="uid://bf7d6wj8f464q" path="res://TreasureHunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="3_7mw8u"]
 [ext_resource type="PackedScene" uid="uid://crajuftg2cmyb" path="res://Scenes/Characters/Crabby/crabby.tscn" id="14_gfjxg"]
 [ext_resource type="PackedScene" uid="uid://c8bf2nu3nar0c" path="res://Scenes/Characters/Fierce Tooth/fierce_tooth.tscn" id="15_kyuto"]
 [ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="16_k14ow"]
@@ -315,7 +315,6 @@ collision_mask = 0
 script = ExtResource("1_64xrg")
 
 [node name="ShipBackground" type="TileMapLayer" parent="."]
-visible = false
 show_behind_parent = true
 z_index = -1
 position = Vector2(-544, -488)

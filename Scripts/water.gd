@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var _splash : PackedScene
+@export var _hello: PackedScene
+
 @onready var _splashsfx: AudioStreamPlayer2D = $WaterSplash
 @onready var _splash_exit: AudioStreamPlayer2D = $WaterSplash2
 

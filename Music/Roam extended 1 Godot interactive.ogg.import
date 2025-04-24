@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ch5hn4eq5theo"
+path="res://.godot/imported/Roam extended 1 Godot interactive.ogg-fe7ed3f900d8273e31f1138cfd71c020.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Roam extended 1 Godot interactive.ogg"
+dest_files=["res://.godot/imported/Roam extended 1 Godot interactive.ogg-fe7ed3f900d8273e31f1138cfd71c020.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
