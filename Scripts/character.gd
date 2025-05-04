@@ -15,7 +15,7 @@ var _max : Vector2
 @export var _jump_height: float = 2.5
 @export var _air_control: float = 0.5
 @export var _jump_dust: PackedScene
-var _jump_velocity: float 
+@export var _jump_velocity: float 
 var _was_on_floor : bool
 
 @export_category("Sprite")
@@ -26,7 +26,7 @@ var _was_on_floor : bool
 
 @export_category("swim")
 @export var _density : float = -0.1
-@export var _drag : float = 0.5
+@export var _drag : float = 0.5 #downward pull, slowing down
 var _water_surface_height : float
 var _is_in_water : bool
 var _is_below_surface : bool
@@ -82,6 +82,7 @@ func enter_water(water_surface_height : float):
 	
 func exit_water():
 	_is_in_water = false
+	print("exit water")
 	
 
 func dive():
@@ -146,17 +147,23 @@ func _air_physics(delta :float):
 func _water_physics(delta: float):
 	if _direction == 0:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * _drag * delta)
+		#print("1")
 	else:
 		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * _drag * delta)
+		#print("2")
 	if _is_below_surface or _density >0:
 		velocity.y = move_toward(velocity.y, gravity * _density * _drag, gravity * _drag * delta)
-	elif position.y - float(Global.ppt) / 4 >_water_surface_height:
+		#print("3")
+	elif position.y -float(Global.ppt) / 4 >_water_surface_height:
 		velocity.y = move_toward(velocity.y, gravity * _density * _drag, gravity * _drag * delta)
+		#print("4")
 	else:
 		velocity.y = move_toward(velocity.y, gravity * _density * _drag * -1, gravity * _drag * delta)
+		#print("5")
 		
 func _landed():
 	landed.emit(position.y)
+	print("Roger landed")
 
 func _spawn_dust(dust: PackedScene):
 	var _dust = dust.instantiate()
@@ -166,4 +173,4 @@ func _spawn_dust(dust: PackedScene):
 
 
 func _on_changed_direction(_is_facing_left: bool) -> void:
-	pass # Replace with function body.
+	pass 

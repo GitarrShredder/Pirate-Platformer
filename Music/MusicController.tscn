@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://che6fq1knhaa1"]
+
+[ext_resource type="AudioStream" uid="uid://biq6anibxnns8" path="res://Music/Roam 1 Godot interactive.ogg" id="1_aql1h"]
+[ext_resource type="AudioStream" uid="uid://b2j1q6rkgbee0" path="res://Music/Fight 1 Godot interactive.ogg" id="2_ya45y"]
+[ext_resource type="AudioStream" uid="uid://bw0bs417t8ayd" path="res://Music/Stinger 1 godot interactive.ogg" id="3_0o8vr"]
+[ext_resource type="Script" uid="uid://bsxkrsswu63vu" path="res://Scripts/interactive_music.gd" id="4_1fgea"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_wsee8"]
+clip_count = 3
+clip_0/name = &"Roam1"
+clip_0/stream = ExtResource("1_aql1h")
+clip_0/auto_advance = 0
+clip_1/name = &"Fight1"
+clip_1/stream = ExtResource("2_ya45y")
+clip_1/auto_advance = 0
+clip_2/name = &"Stinger1"
+clip_2/stream = ExtResource("3_0o8vr")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(1, 0): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+}
+}
+
+[node name="MusicController" type="Node"]
+script = ExtResource("4_1fgea")
+
+[node name="InteractiveMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_wsee8")

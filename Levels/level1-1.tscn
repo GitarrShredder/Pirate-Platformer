@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://xy5pjhx41s3s"]
+[gd_scene load_steps=27 format=4 uid="uid://xy5pjhx41s3s"]
 
 [ext_resource type="Texture2D" uid="uid://b0os4306vf8fk" path="res://TreasureHunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3w4sc"]
 [ext_resource type="Texture2D" uid="uid://dxvpeyw7pbyph" path="res://TreasureHunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_fvkow"]
@@ -17,10 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dx4g1s1o43tem" path="res://Scenes/Characters/Pink Star/pink_star.tscn" id="15_csecg"]
 [ext_resource type="Script" uid="uid://c2ets3jddn6ka" path="res://Scripts/level.gd" id="16_fvkow"]
 [ext_resource type="PackedScene" uid="uid://c886djmuxxqgb" path="res://Treasure/silver_coin.tscn" id="17_jit6h"]
-[ext_resource type="AudioStream" uid="uid://biq6anibxnns8" path="res://Music/Roam 1 Godot interactive.ogg" id="18_pvauc"]
 [ext_resource type="PackedScene" uid="uid://d1lsn10w1tfyd" path="res://Treasure/gold_coin.tscn" id="18_x3vsd"]
-[ext_resource type="AudioStream" uid="uid://b2j1q6rkgbee0" path="res://Music/Fight 1 Godot interactive.ogg" id="19_x3vsd"]
-[ext_resource type="AudioStream" uid="uid://bw0bs417t8ayd" path="res://Music/Stinger 1 godot interactive.ogg" id="20_gvxgt"]
+[ext_resource type="PackedScene" uid="uid://cpjcdadtlv3v4" path="res://Treasure/golden_skull.tscn" id="19_c83vy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5e5f"]
 texture = ExtResource("1_3w4sc")
@@ -493,36 +491,6 @@ b = Vector2(2880, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w4sc"]
 size = Vector2(2888, 592)
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_joevt"]
-clip_count = 3
-clip_0/name = &"Roam 1 Mp 3"
-clip_0/stream = ExtResource("18_pvauc")
-clip_0/auto_advance = 0
-clip_1/name = &"Fight 1 Godot Interactive"
-clip_1/stream = ExtResource("19_x3vsd")
-clip_1/auto_advance = 0
-clip_2/name = &"Stinger 1 Godot Interactive"
-clip_2/stream = ExtResource("20_gvxgt")
-clip_2/auto_advance = 0
-_transitions = {
-Vector2i(0, 0): {
-"fade_beats": 0.5,
-"fade_mode": 3,
-"filler_clip": 2,
-"from_time": 1,
-"to_time": 0,
-"use_filler_clip": true
-},
-Vector2i(1, 0): {
-"fade_beats": 1.0,
-"fade_mode": 3,
-"filler_clip": 2,
-"from_time": 1,
-"to_time": 0,
-"use_filler_clip": true
-}
-}
-
 [node name="Level" type="Area2D"]
 collision_mask = 0
 script = ExtResource("16_fvkow")
@@ -806,16 +774,18 @@ position = Vector2(-864, 512)
 position = Vector2(-544, -488)
 
 [node name="Crabby" parent="Ememies" instance=ExtResource("13_dndme")]
-position = Vector2(613, 431)
+position = Vector2(716, 490)
 
 [node name="Fierce Tooth" parent="Ememies" instance=ExtResource("14_o03hw")]
-position = Vector2(729, 446)
+position = Vector2(783, 514)
+collision_layer = 65538
+collision_mask = 65795
 
 [node name="Pink Star" parent="Ememies" instance=ExtResource("15_csecg")]
 position = Vector2(674, 423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(36, 48)
+position = Vector2(53, 29)
 shape = SubResource("RectangleShape2D_3w4sc")
 debug_color = Color(0, 0.545098, 0.635294, 0.027451)
 
@@ -839,9 +809,7 @@ position = Vector2(-48, -9)
 [node name="Gold Coin" parent="Treasure" instance=ExtResource("18_x3vsd")]
 position = Vector2(-227, 71)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamInteractive_joevt")
-bus = &"Music"
+[node name="Golden Skull" parent="Treasure" instance=ExtResource("19_c83vy")]
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

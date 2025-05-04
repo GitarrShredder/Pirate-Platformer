@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://duwke6ko2u4a1"
+path="res://.godot/imported/SFX_Dead_skull .wav-ad4a5cf2136985b4e6aa440221c6c7aa.sample"
+
+[deps]
+
+source_file="res://SFX/SFX_Dead_skull .wav"
+dest_files=["res://.godot/imported/SFX_Dead_skull .wav-ad4a5cf2136985b4e6aa440221c6c7aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

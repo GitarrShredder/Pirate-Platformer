@@ -299,7 +299,7 @@ graph_offset = Vector2(0, -99.5164)
 
 [node name="Crabby" type="CharacterBody2D"]
 collision_layer = 65536
-collision_mask = 65793
+collision_mask = 65795
 script = ExtResource("1_vm1ox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

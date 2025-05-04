@@ -17,6 +17,8 @@ config/icon="res://TreasureHunters/Captain Clown Nose/Sprites/Captain Clown Nose
 [autoload]
 
 Global="*res://Scripts/Autoloads/global.gd"
+MusicController="*res://Music/MusicController.tscn"
+File="*res://Scripts/Autoloads/file.gd"
 
 [input]
 
